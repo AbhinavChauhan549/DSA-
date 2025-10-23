@@ -20,8 +20,9 @@ int main()
     cout << arr[i] << " ";
   }
 
-  // approach 1 : using two loops
-
+  // approach 1 : using two loops(works for both sorted and unsorted array)
+  // TC: O(N^2)
+  // SC: O(1)
   cout << "\nArray after removing duplicates: ";
 
   for (int i = 0; i < n; i++)
@@ -44,8 +45,9 @@ int main()
     }
   }
 
-  //  Better approach : using map
-
+  //  Better approach : using map(works for both sorted and unsorted array)
+  // TC: O(N)
+  // SC: O(N)
   unordered_map<int, int> mp;
   for (int i = 0; i < n; i++)
   {
@@ -58,7 +60,23 @@ int main()
     cout << it.first << " ";
   }
 
+  // Optimal approach : but only works for sorted array
+
+  int index = 0;
+  cout << "\nArray after removing duplicates : ";
+  for (int i = 1; i < n; i++)
+  {
+    if (arr[index] != arr[i])
+    {
+
+      arr[index + 1] = arr[i];
+      index++;
+    }
+  }
+  for (int i = 0; i <= index; i++)
+  {
+    cout << arr[i] << " ";
+  }
   delete[] arr; // cleanup
-  return 0;
   return 0;
 }
