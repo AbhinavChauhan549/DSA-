@@ -61,7 +61,8 @@ int main()
   }
 
   // Optimal approach : but only works for sorted array
-
+  // TC: O(N)
+  // SC: O(1)
   int index = 0;
   cout << "\nArray after removing duplicates : ";
   for (int i = 1; i < n; i++)
