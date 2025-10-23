@@ -1,4 +1,5 @@
 #include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 int main()
 {
@@ -21,7 +22,7 @@ int main()
 
   // approach 1 : using two loops
 
-  cout << "Array after removing duplicates: ";
+  cout << "\nArray after removing duplicates: ";
 
   for (int i = 0; i < n; i++)
   {
@@ -43,6 +44,21 @@ int main()
     }
   }
 
-  //  Better approach : using map 
+  //  Better approach : using map
+
+  unordered_map<int, int> mp;
+  for (int i = 0; i < n; i++)
+  {
+    mp[arr[i]]++;
+  }
+
+  cout << "\nArray after removing duplicates (map): ";
+  for (auto it : mp)
+  {
+    cout << it.first << " ";
+  }
+
+  delete[] arr; // cleanup
+  return 0;
   return 0;
 }
