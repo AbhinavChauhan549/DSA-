@@ -3,6 +3,8 @@
 using namespace std;
 int main()
 {
+  // TC: O(n+m)
+  // SC: O(n+m)
   int n;
   cin >> n;
 
