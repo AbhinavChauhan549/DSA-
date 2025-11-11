@@ -30,7 +30,7 @@
 
 // Optimal Approach
 
-// TC = O(N x M )
+// TC = O(2 x N x M )
 // SC = O(1)
 
 // void setZeroes(vector<vector<int>>& matrix) {
