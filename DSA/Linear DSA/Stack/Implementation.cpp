@@ -115,25 +115,57 @@ int main()
 {
 
   // stack implementation using class(Fixed Size array)
-  Stack1 s1;
-  s1.push(1);
-  s1.push(2);
-  s1.push(3);
-  s1.pop();
-  int topelement = s1.peek();
-  cout << topelement << endl;
-  cout << s1.isEmpty();
+  // Stack1 s1;
+  // s1.push(1);
+  // s1.push(2);
+  // s1.push(3);
+  // s1.pop();
+  // int topelement = s1.peek();
+  // cout << topelement << endl;
+  // cout << s1.isEmpty();
 
-  // stack implementation using dynamic array(allocation to heap)
-  cout << "\nStack2 using dynamic array\n";
+  // // stack implementation using dynamic array(allocation to heap)
+  // cout << "\nStack2 using dynamic array\n";
 
-  Stack2 s2(3);
-  s2.push(1);
-  s2.push(2);
-  s2.push(3);
-  s2.pop();
-  s2.peek();
-  s2.stackempty();
+  // Stack2 s2(3);
+  // s2.push(1);
+  // s2.push(2);
+  // s2.push(3);
+  // s2.pop();
+  // s2.peek();
+  // s2.stackempty();
+  // User based input in the stack
+
+  Stack1 s3;
+  int n, value;
+
+  cout << "Enter the number of values you want to enter into the stack : ";
+  cin >> n;
+
+  cout << "\nEnter the " << n << " values:";
+  for (int i = 0; i < n; i++)
+  {
+    cin >> value;
+    s3.push(value);
+  }
+  int tip = s3.peek();
+  cout << "\n Top element of the stack is " << tip;
+
+  while (!s3.isEmpty())
+  {
+    cout << "\nDo you want to pop top element (1 for pop / 0 for skip)";
+    int status;
+    cin >> status;
+    if (status == 1)
+    {
+      s3.pop();
+      cout << "\n Top element of the stack is " << s3.peek();
+    }
+    else
+    {
+      break;
+    }
+  }
 
   return 0;
 }
