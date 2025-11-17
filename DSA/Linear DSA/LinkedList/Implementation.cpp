@@ -91,6 +91,88 @@ public:
     temp->next = newnode;
   }
 
+  // Deleting node from the Linked List
+  // Deleting from begining
+
+  void deleteBegining()
+  {
+    if (head == NULL)
+    {
+      cout << "Linked List is empty\n";
+      return;
+    }
+
+    Node *temp = head;
+    head = head->next;
+    delete temp; // free memory
+  }
+
+  // Deleting the last node from Linked List
+  void deleteLast()
+  {
+    if (head == NULL)
+    {
+      cout << "Linked List is empty\n";
+      return;
+    }
+
+    // If only 1 node
+    if (head->next == NULL)
+    {
+      delete head;
+      head = NULL;
+      return;
+    }
+
+    Node *temp = head;
+    Node *prev = NULL;
+
+    while (temp->next != NULL)
+    {
+      prev = temp;
+      temp = temp->next;
+    }
+
+    prev->next = NULL;
+    delete temp;
+  }
+
+  // Deleting a node from a position
+  void deletePosition(int position)
+  {
+    if (head == NULL)
+    {
+      cout << "Linked List is empty\n";
+      return;
+    }
+
+    if (position == 1)
+    {
+      deleteBegining();
+      return;
+    }
+
+    Node *temp = head;
+    Node *prev = NULL;
+    int count = 1;
+
+    while (temp != NULL && count < position)
+    {
+      prev = temp;
+      temp = temp->next;
+      count++;
+    }
+
+    if (temp == NULL)
+    {
+      cout << "Position out of range!\n";
+      return;
+    }
+
+    prev->next = temp->next;
+    delete temp;
+  }
+
   // Display linked list
   void display()
   {
@@ -137,5 +219,19 @@ int main()
 
   l.display();
 
+  cout << "\nDeleting the first node ";
+  l.deleteBegining();
+
+  l.display();
+
+  cout << "\nDeleting the last node ";
+  l.deleteLast();
+
+  l.display();
+
+  cout << "\nDeleting the node from the position : ";
+  l.deletePosition(2);
+
+  l.display();
   return 0;
 }
